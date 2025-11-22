@@ -1,0 +1,563 @@
+/* General Layout and Reset */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    overflow: hidden; 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background Gradient and Overlay */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #001f3f, #cceeff); 
+    z-index: -1;
+}
+
+/* Header and Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    color: white;
+    position: relative;
+    z-index: 10;
+    width: 90%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    background: none; 
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: white; 
+    transition: color 0.3s ease; 
+}
+
+.logo:hover {
+    color: #006747; 
+}
+
+.logo:hover .university-text,
+.logo:hover .south-florida-text {
+    color: #006747; 
+}
+
+.usf-logo {
+    height: 40px; 
+    margin-right: 10px;
+}
+
+.university-text {
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    margin-right: 5px;
+}
+
+.south-florida-text {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+nav .nav-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent; 
+}
+
+nav .nav-button:hover {
+    color: #006747; 
+}
+
+nav .nav-button.active {
+    border-bottom-color: #006747; 
+    color: #006747; 
+}
+
+/* Main Content Containers */
+main {
+    flex-grow: 1;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    padding: 20px;
+    box-sizing: border-box;
+    padding-top: 80px; 
+    overflow-y: auto; 
+}
+
+.page {
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white; 
+    max-width: 800px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.page.hidden {
+    display: none;
+}
+
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+}
+
+/* Home Page Specific */
+#home-page .app-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4em;
+    margin-bottom: 5px;
+    color: white;
+}
+
+#home-page .tagline {
+    font-size: 1.2em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    color: #f0f0f0;
+}
+
+.quote-box {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    min-height: 80px; 
+    position: relative;
+    color: white;
+    font-style: italic;
+}
+.quote-box::before {
+    content: '“';
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 3em;
+    color: rgba(255, 255, 255, 0.5);
+}
+.quote-box::after {
+    content: '”';
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+    font-size: 3em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.action-button {
+    background-color: #f0fede; 
+    color: #006747; 
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-button:hover {
+    background-color: #e0e9cd; 
+    transform: translateY(-2px);
+}
+
+
+/* Date Picker and Chart Styles */
+
+.date-picker-group {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.date-label {
+    display: block;
+    color: #f0fede;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+.date-dropdowns-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.date-input {
+    padding: 10px 10px; 
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    flex-grow: 1; 
+    max-width: 100px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' d='M10 12l-6-6h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+.date-input option {
+    background-color: #001f3f; 
+    color: white;
+}
+
+.chart-section {
+    margin-bottom: 25px;
+}
+
+.chart-controls {
+    margin-bottom: 10px;
+}
+
+.chart-view-button {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.chart-view-button.active {
+    background-color: #006747; 
+    border-color: #006747;
+    font-weight: bold;
+}
+
+.chart-placeholder {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 5px;
+    min-height: 100px;
+}
+
+.chart-info-text {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    color: #f0fede;
+}
+
+.chart-tiles-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 5px;
+    margin-top: 10px;
+    justify-items: center;
+}
+
+.day-tile {
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    font-size: 0.7em;
+    font-weight: bold;
+    color: #333; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    background-color: white; 
+}
+
+.day-name {
+    font-size: 0.7em;
+    color: #ccc;
+    margin-bottom: 2px;
+}
+
+/* Mood Gradient (Darker green = Bad/Need to Mellow Down) */
+
+.mood-1 { background-color: #006747; color: white; } 
+.mood-2 { background-color: #2E7D32; color: white; } 
+.mood-3 { background-color: #4CAF50; color: white; }
+.mood-4 { background-color: #81C784; color: #333; } 
+.mood-5 { background-color: #A5D6A7; color: #333; } 
+
+
+/* Check-In Page Sliders and Location Styles */
+
+.slider-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+    padding: 0 10%; 
+}
+
+.slider-group label {
+    flex-basis: 30%; 
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.9em; 
+    color: white;
+    white-space: nowrap; 
+    margin-right: 15px;
+}
+
+.slider {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%; 
+    height: 10px;
+    background: #d3d3d3; 
+    outline: none;
+    opacity: 0.8;
+    transition: opacity .2s;
+    border-radius: 5px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #006747; 
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.slider-value {
+    position: absolute;
+    right: 5%; 
+    background-color: #006747;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    min-width: 20px;
+    text-align: center;
+}
+
+.submit-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.location-label {
+    display: block;
+    color: #f0f0f0;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.location-dropdown {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 200px;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' d='M10 12l-6-6h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+.location-dropdown option {
+    background-color: #001f3f; 
+    color: white;
+    padding: 5px 0;
+}
+
+#log-message {
+    color: #006747; 
+    font-weight: bold;
+    margin-top: 15px;
+    transition: color 0.3s ease; 
+}
+
+#log-message:hover {
+    color: #004D36; 
+    cursor: pointer;
+}
+
+/* Campus Map Page Styles */
+.map-info-text {
+    font-size: 1em;
+    font-weight: bold;
+    color: #f0fede;
+    margin-bottom: 15px;
+    text-align: left; /* Default alignment */
+}
+
+/* Style to center the location text */
+.map-info-text.centered {
+    text-align: center;
+    /* Ensure it uses the full width of the 'page' container */
+    width: 100%; 
+    box-sizing: border-box; 
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+/* Container for the map and the list */
+.map-display-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+}
+
+/* Calm Spot List Sidebar */
+.calm-spot-list {
+    flex-basis: 35%; 
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    height: 300px; 
+    overflow-y: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.calm-spot-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.calm-spot-list li {
+    font-size: 0.9em;
+    padding: 5px 0;
+    color: #f0fede;
+    transition: color 0.2s ease;
+}
+
+.calm-spot-list li:hover {
+    color: #A5D6A7; 
+    cursor: default;
+}
+
+/* Map Container */
+#map-container {
+    flex-basis: 65%; 
+    position: relative;
+    aspect-ratio: 16 / 9; 
+    background-color: #3f608f; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/USF_Tampa_campus.svg/1280px-USF_Tampa_campus.svg.png');
+    background-size: cover;
+    background-position: center;
+    height: 300px; 
+}
+
+/* SVG for the Connection Line */
+#connection-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    z-index: 35; 
+}
+#connection-line.hidden {
+    display: none;
+}
+.connection-path {
+    stroke: #ffffff; 
+    stroke-width: 2;
+    stroke-dasharray: 4 4; 
+    fill: none;
+    transition: opacity 0.1s;
+}
+
+/* Marker Styles */
+.calm-spot-marker {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #006747; 
+    border: 3px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    transform: translate(-50%, -50%); 
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.calm-spot-marker.current-location {
+    background-color: #ff0000; 
+    width: 20px;
+    height: 20px;
+    z-index: 30;
+}
+
+/* Hover Tooltip Style */
+#map-tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    pointer-events: none; 
+    transform: translate(-50%, -120%); 
+    white-space: nowrap;
+    z-index: 50;
+    transition: opacity 0.2s;
+}
+
+#map-tooltip.hidden {
+    display: none;
+}

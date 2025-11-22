@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mellow Down - USF Wellness</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-image"></div>
+    
+    <header>
+        <button id="home-logo-button" class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/University_of_South_florida_seal.svg/1200px-University_of_South_florida_seal.svg.png" alt="USF Logo" class="usf-logo">
+            <span class="university-text">UNIVERSITY of</span>
+            <span class="south-florida-text">SOUTH FLORIDA</span>
+        </button>
+        
+        <nav>
+            <button id="check-in-nav" class="nav-button active">CHECK -IN</button>
+            <button id="campus-map-nav" class="nav-button">CAMPUS CALM MAP</button>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="home-page" class="page active">
+            <h1 class="app-title">Mellow Down</h1>
+            <p class="tagline">KNOW WHEN TO PUSH, AND WHEN TO MELLOW DOWN</p>
+            <div class="quote-box">
+                <p id="dynamic-quote">Welcome to your personal well-being companion.</p>
+            </div>
+            <button id="get-started-button" class="action-button">GET STARTED</button>
+        </section>
+
+        
+        <section id="check-in-page" class="page hidden">
+            
+            <div class="date-picker-group">
+                <label for="checkin-month" class="date-label">📅 SELECT DATE</label>
+                <div class="date-dropdowns-container">
+                    <select id="checkin-month" class="date-input"></select>
+                    <select id="checkin-day" class="date-input"></select>
+                    <select id="checkin-year" class="date-input"></select>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <div class="chart-controls">
+                    <button id="view-monthly" class="chart-view-button active">Monthly</button>
+                    <button id="view-weekly" class="chart-view-button">Weekly</button>
+                </div>
+                <div id="mood-chart-placeholder" class="chart-placeholder">
+                    <p class="chart-info-text">Mood History (Dark Green = Bad/Mellow Down, Light Green = Great)</p>
+                    <div id="chart-tiles-container" class="chart-tiles-container">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <div class="slider-group">
+                <label for="mood-slider">MOOD (1=Bad, 5=Great)</label>
+                <input type="range" id="mood-slider" min="1" max="5" value="3" class="slider">
+                <span id="mood-value" class="slider-value">3</span>
+            </div>
+            <div class="slider-group">
+                <label for="stress-slider">STRESS (1=Low, 5=High)</label>
+                <input type="range" id="stress-slider" min="1" max="5" value="3" class="slider">
+                <span id="stress-value" class="slider-value">3</span>
+            </div>
+            <div class="slider-group">
+                <label for="sleep-slider">SLEEP (1=Poor, 5=Good)</label>
+                <input type="range" id="sleep-slider" min="1" max="5" value="3" class="slider">
+                <span id="sleep-value" class="slider-value">3</span>
+            </div>
+            <div class="slider-group">
+                <label for="study-slider">STUDY FOCUS (Hours)</label>
+                <input type="range" id="study-slider" min="0" max="10" value="0" class="slider">
+                <span id="study-value" class="slider-value">0</span>
+            </div>
+            <div class="slider-group">
+                <label for="activity-slider">ACTIVITY (1=None, 5=Lot)</label>
+                <input type="range" id="activity-slider" min="1" max="5" value="3" class="slider">
+                <span id="activity-value" class="slider-value">3</span>
+            </div>
+
+            <hr class="section-divider">
+
+            <div class="submit-section">
+                <label for="location-select" class="location-label">📍 LOCATION</label>
+                <select id="location-select" class="location-dropdown">
+                    <option value="mcs">MSC</option>
+                    <option value="library" selected>Library</option>
+                    <option value="village">The Village</option>
+                    <option value="hub">The Hub</option>
+                    <option value="home">Home</option>
+                </select>
+
+                <button id="log-checkin-button" class="action-button">SUBMIT CHECK-IN</button>
+                
+                <p id="log-message" class="hidden">Check in to view your insights on the Campus Calm Map.</p>
+            </div>
+        </section>
+
+        
+        <section id="campus-map-page" class="page hidden">
+            <h2>Campus Calm Map</h2>
+            <p id="last-location-display" class="map-info-text centered">Last Check-in Location: N/A</p>
+            
+            <div class="map-display-container">
+                
+                <div id="calm-spot-list" class="calm-spot-list">
+                    </div>
+
+                <div id="map-container">
+                                        <div id="calm-spot-markers-container">
+                        </div>
+                    
+                    <svg id="connection-line" class="hidden"></svg>
+                    
+                    <div id="map-tooltip" class="hidden"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
