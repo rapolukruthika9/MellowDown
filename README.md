@@ -34,7 +34,7 @@ No installation or server is required to run this application.
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [Paste Your GitHub HTTPS Link Here]
+    git clone https://github.com/rapolukruthika9/MellowDown
     ```
 2.  **Run:** Locate the project folder and **double-click** the **`index.html`** file. It will open automatically in your web browser.
 
